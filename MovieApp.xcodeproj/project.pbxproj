@@ -103,6 +103,8 @@
 		CB5D7760208FF8D500BCAC49 /* MovieApp */ = {
 			isa = PBXGroup;
 			children = (
+				CBEEAB6520928A64005DDA0D /* Presenter */,
+				CBEEAB6420928A53005DDA0D /* View */,
 				CBEEAB5C2092702B005DDA0D /* Model */,
 				CB5D77812090007C00BCAC49 /* Requester */,
 				CB5D7761208FF8D500BCAC49 /* AppDelegate.swift */,
@@ -151,6 +153,20 @@
 				CBEEAB6220928252005DDA0D /* GendersResponse.swift */,
 			);
 			path = Gender;
+			sourceTree = "<group>";
+		};
+		CBEEAB6420928A53005DDA0D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CBEEAB6520928A64005DDA0D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		DC02888754F37C84969AF4A8 /* Pods */ = {
