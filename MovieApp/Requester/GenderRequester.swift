@@ -7,29 +7,26 @@
 //
 
 import Foundation
-import Alamofire
+import RxAlamofire
 import AlamofireObjectMapper
 import ObjectMapper
+import RxSwift
 
 protocol GenderRequesterInterface {
     
-    typealias GendersResult = (_ genders:GendersResponse?, _ error:Error?) -> Void
-    
-    func getAllGenders(completion: GendersResult);
+    func getAllGenders() -> Observable<GendersResponse>;
     
 }
 
 class GenderRequester {
     
-    func getAllGenders(completion:@escaping GenderRequesterInterface.GendersResult) {
-        request(RouterAPI.genders).responseObject { (response: DataResponse<GendersResponse>) in
-            switch response.result {
-            case .success(let genders):
-                completion(genders, nil)
-            case .failure(let error):
-                completion(nil, error)
+    func getAllGenders() -> Observable<GendersResponse> {
+        return request(RouterAPI.genders).map { (json) -> GendersResponse in
+            guard let gendersResponse = Mapper<GendersResponse>().map(JSONObject: json) else {
+                throw APIError(message: "ObjectMapper can't mapping", code: 422)
             }
+            
+            return gendersResponse
         }
-        
     }
 }

@@ -22,6 +22,9 @@
 		CBEEAB5E2092703A005DDA0D /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEEAB5D2092703A005DDA0D /* Gender.swift */; };
 		CBEEAB602092704E005DDA0D /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEEAB5F2092704E005DDA0D /* BaseModel.swift */; };
 		CBEEAB6320928252005DDA0D /* GendersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEEAB6220928252005DDA0D /* GendersResponse.swift */; };
+		CBEEAB6F20928E8D005DDA0D /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEEAB6E20928E8D005DDA0D /* HomeTableViewController.swift */; };
+		CBEEAB7120928F12005DDA0D /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEEAB7020928F12005DDA0D /* HomePresenter.swift */; };
+		CBEEAB7320929A24005DDA0D /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEEAB7220929A24005DDA0D /* ApiError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,9 @@
 		CBEEAB5D2092703A005DDA0D /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		CBEEAB5F2092704E005DDA0D /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		CBEEAB6220928252005DDA0D /* GendersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GendersResponse.swift; sourceTree = "<group>"; };
+		CBEEAB6E20928E8D005DDA0D /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		CBEEAB7020928F12005DDA0D /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		CBEEAB7220929A24005DDA0D /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		ECDBBC30492C0EB3F8B900A0 /* Pods-MovieAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieAppTests/Pods-MovieAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,7 +109,7 @@
 		CB5D7760208FF8D500BCAC49 /* MovieApp */ = {
 			isa = PBXGroup;
 			children = (
-				CBEEAB6520928A64005DDA0D /* Presenter */,
+				CBEEAB6D20928E56005DDA0D /* Presenter */,
 				CBEEAB6420928A53005DDA0D /* View */,
 				CBEEAB5C2092702B005DDA0D /* Model */,
 				CB5D77812090007C00BCAC49 /* Requester */,
@@ -115,6 +121,7 @@
 				CB5D776D208FF8D600BCAC49 /* Info.plist */,
 				CB5D7782209002A100BCAC49 /* Configuration.swift */,
 				CB5D77842090036E00BCAC49 /* RouterAPI.swift */,
+				CBEEAB7220929A24005DDA0D /* ApiError.swift */,
 			);
 			path = MovieApp;
 			sourceTree = "<group>";
@@ -158,13 +165,15 @@
 		CBEEAB6420928A53005DDA0D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CBEEAB6E20928E8D005DDA0D /* HomeTableViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		CBEEAB6520928A64005DDA0D /* Presenter */ = {
+		CBEEAB6D20928E56005DDA0D /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				CBEEAB7020928F12005DDA0D /* HomePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -300,6 +309,9 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityLogger/AlamofireNetworkActivityLogger.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -307,6 +319,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityLogger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -360,11 +375,14 @@
 				CB5D7787209005EA00BCAC49 /* MovieRequester.swift in Sources */,
 				CB5D77852090036E00BCAC49 /* RouterAPI.swift in Sources */,
 				CBEEAB5B2092701A005DDA0D /* GenderRequester.swift in Sources */,
+				CBEEAB6F20928E8D005DDA0D /* HomeTableViewController.swift in Sources */,
+				CBEEAB7320929A24005DDA0D /* ApiError.swift in Sources */,
 				CB5D7783209002A100BCAC49 /* Configuration.swift in Sources */,
 				CB5D7762208FF8D500BCAC49 /* AppDelegate.swift in Sources */,
 				CBEEAB6320928252005DDA0D /* GendersResponse.swift in Sources */,
 				CBEEAB602092704E005DDA0D /* BaseModel.swift in Sources */,
 				CBEEAB5E2092703A005DDA0D /* Gender.swift in Sources */,
+				CBEEAB7120928F12005DDA0D /* HomePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

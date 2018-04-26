@@ -16,10 +16,6 @@ enum RouterAPI: URLRequestConvertible {
     
     static let baseURL = Configuration.URL_BASE
     
-    var header : HTTPHeaders {
-        return Configuration.HEADER as! HTTPHeaders
-    }
-    
     var endPoint : String {
         switch self {
         case .list: return ""
@@ -45,7 +41,6 @@ enum RouterAPI: URLRequestConvertible {
         
         var urlRequest = URLRequest(url: url.appendingPathComponent(endPoint))
         urlRequest.httpMethod = method.rawValue
-        urlRequest.allHTTPHeaderFields = header
         urlRequest = try URLEncoding.default.encode(urlRequest, with: params)
         
         return urlRequest
