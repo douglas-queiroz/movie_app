@@ -6,6 +6,9 @@ target 'MovieApp' do
   use_frameworks!
 
   # Pods for MovieApp
+  pod 'AlamofireObjectMapper', '~> 5.0'
+  pod 'Alamofire', '~> 4.5'
+  pod 'AlamofireNetworkActivityLogger', '~> 2.0'
 
   target 'MovieAppTests' do
     inherit! :search_paths
