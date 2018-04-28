@@ -18,7 +18,7 @@ class MovieRequesterImpl: MovieRequester {
     
     func getUpComing() -> Observable<MovieResponse> {
         return Observable.create { observer in
-            request(RouterAPI.list)
+            request(RouterAPI.movieUpComing)
                 .responseObject { (response:DataResponse<MovieResponse>) in
                     switch response.result {
                     case .success(let movies):

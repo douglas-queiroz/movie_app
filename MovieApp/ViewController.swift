@@ -13,12 +13,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let movieDataSouce = MovieDataSource(movieRequester: MovieRequesterImpl(),
-                                             genderRequester: GenderRequesterImpl())
-        
-        movieDataSouce.getUpComing().subscribe { (event) in
-            print("passou aqui")
-        }
         
         
     }

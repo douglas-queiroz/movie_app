@@ -9,35 +9,36 @@
 import Foundation
 import RxSwift
 
-protocol HomePresenterInterface {
+protocol HomePresenter {
     func loadMovies()
 }
 
-class HomePresenter {
+class HomePresenterImpl: HomePresenter {
     
-    var genderRequester: GenderRequesterInterface!
+    var view: HomeView!
+    var movieDataSouce: MovieDataSource!
     
-    init(genderRequester: GenderRequesterInterface) {
-        self.genderRequester = genderRequester
+    init(view: HomeView, movieDataSouce: MovieDataSource) {
+        self.view = view
+        self.movieDataSouce = movieDataSouce
     }
     
-    private func loadGenders() {
-        genderRequester.getAllGenders()
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { (gendersResponse: GendersResponse) in
-                
-            }, onError: { (error: Error) in
-                
-            }, onCompleted: {
-                
-            }) {
-                
-        }
-    }
-}
-
-extension HomePresenter: HomePresenterInterface {
     func loadMovies() {
         
+        view.showLoading()
+        
+        _ = movieDataSouce.getUpComing().subscribe { (event) in
+            switch event {
+            case .completed:
+                self.view.hideLoading()
+                break
+            case .next(let movies):
+                self.view.load(movies: movies)
+                break
+            case .error(let erro):
+                self.view.hideLoading()
+                break
+            }
+        }
     }
 }

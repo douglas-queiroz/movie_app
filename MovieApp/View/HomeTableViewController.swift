@@ -8,49 +8,44 @@
 
 import UIKit
 
-protocol HomeViewInterface {
+protocol HomeView {
     func showLoading();
     func hideLoading();
+    func load(movies: [Movie])
 }
 
 class HomeTableViewController: UITableViewController {
 
+    var movies = [Movie]()
+    var presenter: HomePresenter!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        self.setupPresenter()
+        self.presenter.loadMovies()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func setupPresenter() {
+        let genderRequester = GenderRequesterImpl()
+        let movieRequester = MovieRequesterImpl()
+        let movieDataSource = MovieDataSourceImpl(movieRequester: movieRequester, genderRequester: genderRequester)
+        self.presenter = HomePresenterImpl(view: self, movieDataSouce: movieDataSource)
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return movies.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "movie_cell", for: indexPath)
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -97,4 +92,19 @@ class HomeTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension HomeTableViewController: HomeView {
+    func showLoading() {
+        
+    }
+    
+    func hideLoading() {
+        
+    }
+    
+    func load(movies: [Movie]) {
+        self.movies = movies
+        self.tableView.reloadData()
+    }
 }
