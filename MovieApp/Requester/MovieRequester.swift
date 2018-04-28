@@ -6,9 +6,32 @@
 //  Copyright © 2018 Douglas Queiroz. All rights reserved.
 //
 
-import Foundation
+import Alamofire
+import AlamofireObjectMapper
+import RxSwift
 
-class MovieRequester {
+protocol MovieRequester {
+    func getUpComing() -> Observable<MovieResponse>
+}
+
+class MovieRequesterImpl: MovieRequester {
     
+    func getUpComing() -> Observable<MovieResponse> {
+        return Observable.create { observer in
+            request(RouterAPI.list)
+                .responseObject { (response:DataResponse<MovieResponse>) in
+                    switch response.result {
+                    case .success(let movies):
+                        observer.onNext(movies)
+                        break
+                    case .failure(let error):
+                        observer.onError(error)
+                        break
+                    }
+            }
+            
+            return Disposables.create()
+        }
+    }
     
 }

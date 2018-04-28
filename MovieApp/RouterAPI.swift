@@ -10,30 +10,38 @@ import Alamofire
 
 enum RouterAPI: URLRequestConvertible {
     
-    case list
+    case movieUpComing
     case genders
-    case movie(movieId: String)
+    case seachMovie(query: String)
     
     static let baseURL = Configuration.URL_BASE
     
     var endPoint : String {
         switch self {
-        case .list: return ""
+        case .movieUpComing: return "/movie/upcoming"
         case .genders: return "/genre/movie/list"
-        case .movie: return ""
+        case .seachMovie: return "/search/movie"
         }
     }
     
     var method : HTTPMethod {
         switch self {
-        case .list: return .get
+        case .movieUpComing: return .get
         case .genders: return .get
-        case .movie: return .get
+        case .seachMovie: return .get
         }
     }
     
     var params: [String: Any] {
-        return ["api_key": Configuration.KEY as Any]
+        var params = ["api_key": Configuration.KEY as Any]
+        
+        switch self {
+        case .seachMovie(let query):
+            params["query"] = query
+            return params
+        default:
+            return params
+        }
     }
     
     func asURLRequest() throws -> URLRequest {
@@ -41,6 +49,7 @@ enum RouterAPI: URLRequestConvertible {
         
         var urlRequest = URLRequest(url: url.appendingPathComponent(endPoint))
         urlRequest.httpMethod = method.rawValue
+        
         urlRequest = try URLEncoding.default.encode(urlRequest, with: params)
         
         return urlRequest

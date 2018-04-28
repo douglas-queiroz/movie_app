@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import RxSwift
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let genderRequester = GenderRequester()
-        genderRequester.getAllGenders { (genders, error) in
-            print(error.debugDescription)
+        let movieDataSouce = MovieDataSource(movieRequester: MovieRequesterImpl(),
+                                             genderRequester: GenderRequesterImpl())
+        
+        movieDataSouce.getUpComing().subscribe { (event) in
+            print("passou aqui")
         }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

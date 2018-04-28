@@ -20,7 +20,7 @@ class APIError: NSError {
     }
     
     init(message: String, code: Int) {
-        super.init(domain: domain, code: code, userInfo: nil)
+        super.init(domain: message, code: code, userInfo: nil)
     }
     
     override init(domain: String, code: Int, userInfo dict: [String : Any]? = nil) {
