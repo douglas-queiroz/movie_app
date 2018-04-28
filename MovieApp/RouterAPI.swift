@@ -10,7 +10,7 @@ import Alamofire
 
 enum RouterAPI: URLRequestConvertible {
     
-    case movieUpComing
+    case movieUpComing(page: Int)
     case genders
     case seachMovie(query: String)
     
@@ -36,6 +36,9 @@ enum RouterAPI: URLRequestConvertible {
         var params = ["api_key": Configuration.KEY as Any]
         
         switch self {
+        case .movieUpComing(let page):
+            params["page"] = page
+            return params
         case .seachMovie(let query):
             params["query"] = query
             return params

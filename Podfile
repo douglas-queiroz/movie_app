@@ -11,7 +11,10 @@ target 'MovieApp' do
   pod 'AlamofireNetworkActivityLogger', '~> 2.0'
   pod 'RxSwift', '~> 4.0'
   pod 'RxCocoa', '~> 4.0'
-  pod 'RxAlamofire'
+  
+  pod 'PKHUD', '~> 5.0'
+  
+  pod 'SDWebImage/WebP'
 
   target 'MovieAppTests' do
     inherit! :search_paths

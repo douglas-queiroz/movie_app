@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		091B5E2B463AB592AFD319B6 /* Pods_MovieAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D5D01EC8C1DB5C98422FA49 /* Pods_MovieAppTests.framework */; };
 		B03CC471EF6B6F8CC8E47B0C /* Pods_MovieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA16E25761F7FC60EB9C7C7 /* Pods_MovieApp.framework */; };
+		CB26F17E2094D6ED002C8AA2 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB26F17D2094D6ED002C8AA2 /* HomeTableViewCell.swift */; };
+		CB26F1812094E027002C8AA2 /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB26F1802094E027002C8AA2 /* StringExtention.swift */; };
+		CB26F1832094E1A6002C8AA2 /* DateExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB26F1822094E1A6002C8AA2 /* DateExtention.swift */; };
 		CB5D7762208FF8D500BCAC49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D7761208FF8D500BCAC49 /* AppDelegate.swift */; };
 		CB5D7764208FF8D500BCAC49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D7763208FF8D500BCAC49 /* ViewController.swift */; };
 		CB5D7767208FF8D500BCAC49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5D7765208FF8D500BCAC49 /* Main.storyboard */; };
@@ -45,6 +48,9 @@
 		4FA16E25761F7FC60EB9C7C7 /* Pods_MovieApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AE45942624835D6422B4D66 /* Pods-MovieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieApp/Pods-MovieApp.release.xcconfig"; sourceTree = "<group>"; };
 		8D5D01EC8C1DB5C98422FA49 /* Pods_MovieAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB26F17D2094D6ED002C8AA2 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		CB26F1802094E027002C8AA2 /* StringExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
+		CB26F1822094E1A6002C8AA2 /* DateExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtention.swift; sourceTree = "<group>"; };
 		CB5D775E208FF8D500BCAC49 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB5D7761208FF8D500BCAC49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB5D7763208FF8D500BCAC49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +96,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB26F17C2094D6D0002C8AA2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CBEEAB6E20928E8D005DDA0D /* HomeTableViewController.swift */,
+				CB26F17D2094D6ED002C8AA2 /* HomeTableViewCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		CB26F17F2094DFF7002C8AA2 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				CB26F1802094E027002C8AA2 /* StringExtention.swift */,
+				CB26F1822094E1A6002C8AA2 /* DateExtention.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		CB5D7755208FF8D400BCAC49 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +141,7 @@
 				CB5E200F20940C4E0066BB2C /* DataSource */,
 				CBEEAB6D20928E56005DDA0D /* Presenter */,
 				CBEEAB5C2092702B005DDA0D /* Model */,
+				CB26F17F2094DFF7002C8AA2 /* Util */,
 				CBEEAB6420928A53005DDA0D /* View */,
 				CB5D7761208FF8D500BCAC49 /* AppDelegate.swift */,
 				CB5D7763208FF8D500BCAC49 /* ViewController.swift */,
@@ -187,7 +212,7 @@
 		CBEEAB6420928A53005DDA0D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CBEEAB6E20928E8D005DDA0D /* HomeTableViewController.swift */,
+				CB26F17C2094D6D0002C8AA2 /* Home */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -331,9 +356,11 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityLogger/AlamofireNetworkActivityLogger.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -341,9 +368,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityLogger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libwebp.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -398,13 +427,16 @@
 				CB5D7764208FF8D500BCAC49 /* ViewController.swift in Sources */,
 				CB5D7787209005EA00BCAC49 /* MovieRequester.swift in Sources */,
 				CB5D77852090036E00BCAC49 /* RouterAPI.swift in Sources */,
+				CB26F1812094E027002C8AA2 /* StringExtention.swift in Sources */,
 				CBEEAB5B2092701A005DDA0D /* GenderRequester.swift in Sources */,
+				CB26F17E2094D6ED002C8AA2 /* HomeTableViewCell.swift in Sources */,
 				CB5E2017209410A80066BB2C /* MovieResponse.swift in Sources */,
 				CBEEAB6F20928E8D005DDA0D /* HomeTableViewController.swift in Sources */,
 				CBEEAB7320929A24005DDA0D /* ApiError.swift in Sources */,
 				CB5D7783209002A100BCAC49 /* Configuration.swift in Sources */,
 				CB5D7762208FF8D500BCAC49 /* AppDelegate.swift in Sources */,
 				CBEEAB6320928252005DDA0D /* GendersResponse.swift in Sources */,
+				CB26F1832094E1A6002C8AA2 /* DateExtention.swift in Sources */,
 				CBEEAB5E2092703A005DDA0D /* Gender.swift in Sources */,
 				CBEEAB7120928F12005DDA0D /* HomePresenter.swift in Sources */,
 			);

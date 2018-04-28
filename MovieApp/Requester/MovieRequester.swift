@@ -11,14 +11,14 @@ import AlamofireObjectMapper
 import RxSwift
 
 protocol MovieRequester {
-    func getUpComing() -> Observable<MovieResponse>
+    func getUpComing(page: Int) -> Observable<MovieResponse>
 }
 
 class MovieRequesterImpl: MovieRequester {
     
-    func getUpComing() -> Observable<MovieResponse> {
+    func getUpComing(page: Int) -> Observable<MovieResponse> {
         return Observable.create { observer in
-            request(RouterAPI.movieUpComing)
+            request(RouterAPI.movieUpComing(page: page))
                 .responseObject { (response:DataResponse<MovieResponse>) in
                     switch response.result {
                     case .success(let movies):
