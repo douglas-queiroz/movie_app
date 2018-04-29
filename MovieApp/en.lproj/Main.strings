@@ -1,0 +1,18 @@
+
+/* Class = "UINavigationItem"; title = "Movies"; ObjectID = "2G7-8P-ue9"; */
+"2G7-8P-ue9.title" = "Movies";
+
+/* Class = "UILabel"; text = "Siper-Man"; ObjectID = "RXT-1f-1Ft"; */
+"RXT-1f-1Ft.text" = "Siper-Man";
+
+/* Class = "UILabel"; text = "| Action | Comedi |"; ObjectID = "Smk-iB-mzF"; */
+"Smk-iB-mzF.text" = "| Action | Comedi |";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "g7S-uo-q6Y"; */
+"g7S-uo-q6Y.title" = " ";
+
+/* Class = "UILabel"; text = "Release: 2018-10-20"; ObjectID = "hHo-4i-onM"; */
+"hHo-4i-onM.text" = "Release: 2018-10-20";
+
+/* Class = "UILabel"; text = "Overview"; ObjectID = "rSL-Rg-Y1A"; */
+"rSL-Rg-Y1A.text" = "Overview";

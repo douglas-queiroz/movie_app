@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol SearchMoviePresenter {
     func loadMovies(with query: String)
@@ -23,6 +24,12 @@ class SearchMoviePresenterImpl: SearchMoviePresenter {
     init(view: SearchMovieView, movieDataSouce: MovieDataSource) {
         self.view = view
         self.movieDataSouce = movieDataSouce
+    }
+    
+    func loadMovies(with query: String) -> Observable<[Movie]> {
+        currentQuery = query
+        currentPage = 1
+        return movieDataSouce.search(query: query, page: currentPage)
     }
     
     func loadMovies(with query: String) {

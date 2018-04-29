@@ -25,6 +25,7 @@ class SearchMovieTableViewController: UITableViewController {
     let searchBar = UISearchBar()
     
     var presenter: SearchMoviePresenter!
+    var searchBarDisposable: Disposable!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,23 @@ class SearchMovieTableViewController: UITableViewController {
         self.setupSearchBar()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.searchBar.becomeFirstResponder()
+        self.searchBarDisposable = searchBar.rx.text.orEmpty
+            .throttle(2, scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .observeOn(MainScheduler.instance)
+            .subscribe { (event) in
+                switch event {
+                case .next(let query):
+                    self.presenter.loadMovies(with: query)
+                    break
+                default:
+                    return
+                }
+        }
+    }
+    
     func setupPresenter() {
         let genderRequester = GenderRequesterImpl()
         let movieRequester = MovieRequesterImpl()
@@ -45,26 +63,11 @@ class SearchMovieTableViewController: UITableViewController {
     
     func setupSearchBar() {
         self.searchBar.delegate = self
-        self.searchBar.becomeFirstResponder()
-        searchBar.setShowsCancelButton(true, animated: true)
-        
-        self.navigationItem.hidesBackButton = true
         self.navigationItem.titleView = searchBar
-        
-        _ = searchBar.rx.text.orEmpty
-            .throttle(3, scheduler: MainScheduler.instance)
-            .distinctUntilChanged()
-            .observeOn(MainScheduler.instance)
-            .subscribe { (event) in
-                switch event {
-                case .next(let query):
-                    
-                    self.presenter.loadMovies(with: query)
-                    break
-                default:
-                    return
-                }
-        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        searchBarDisposable.dispose()
     }
 
     // MARK: - Table view data source
@@ -100,7 +103,6 @@ class SearchMovieTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let sender = sender as? MovieTableViewCell,
             let destinationVC = segue.destination as? MovieDetailsViewController {
-            
             destinationVC.movie = sender.movie
         }
     }
