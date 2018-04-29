@@ -26,6 +26,8 @@
 		CB5E201120940C740066BB2C /* MovieDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5E201020940C740066BB2C /* MovieDataSource.swift */; };
 		CB5E201520940F320066BB2C /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5E201420940F320066BB2C /* Movie.swift */; };
 		CB5E2017209410A80066BB2C /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5E2016209410A80066BB2C /* MovieResponse.swift */; };
+		CB723DAD209619830003C06A /* SearchMovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB723DAC209619830003C06A /* SearchMovieTableViewController.swift */; };
+		CB723DAF20961B280003C06A /* SearchMoviePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB723DAE20961B280003C06A /* SearchMoviePresenter.swift */; };
 		CBEEAB5B2092701A005DDA0D /* GenderRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEEAB5A2092701A005DDA0D /* GenderRequester.swift */; };
 		CBEEAB5E2092703A005DDA0D /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEEAB5D2092703A005DDA0D /* Gender.swift */; };
 		CBEEAB6320928252005DDA0D /* GendersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEEAB6220928252005DDA0D /* GendersResponse.swift */; };
@@ -71,6 +73,8 @@
 		CB5E201020940C740066BB2C /* MovieDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataSource.swift; sourceTree = "<group>"; };
 		CB5E201420940F320066BB2C /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		CB5E2016209410A80066BB2C /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
+		CB723DAC209619830003C06A /* SearchMovieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieTableViewController.swift; sourceTree = "<group>"; };
+		CB723DAE20961B280003C06A /* SearchMoviePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMoviePresenter.swift; sourceTree = "<group>"; };
 		CBEEAB5A2092701A005DDA0D /* GenderRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderRequester.swift; sourceTree = "<group>"; };
 		CBEEAB5D2092703A005DDA0D /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		CBEEAB6220928252005DDA0D /* GendersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GendersResponse.swift; sourceTree = "<group>"; };
@@ -204,6 +208,14 @@
 			path = Movie;
 			sourceTree = "<group>";
 		};
+		CB723DAB2096195F0003C06A /* SearchMovie */ = {
+			isa = PBXGroup;
+			children = (
+				CB723DAC209619830003C06A /* SearchMovieTableViewController.swift */,
+			);
+			path = SearchMovie;
+			sourceTree = "<group>";
+		};
 		CBEEAB5C2092702B005DDA0D /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +237,7 @@
 		CBEEAB6420928A53005DDA0D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CB723DAB2096195F0003C06A /* SearchMovie */,
 				CB26F1842094E9A5002C8AA2 /* MovieDetails */,
 				CB26F17C2094D6D0002C8AA2 /* Home */,
 			);
@@ -235,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				CBEEAB7020928F12005DDA0D /* HomePresenter.swift */,
+				CB723DAE20961B280003C06A /* SearchMoviePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -440,6 +454,7 @@
 				CB5E201120940C740066BB2C /* MovieDataSource.swift in Sources */,
 				CB26F1862094EB6E002C8AA2 /* MovieDetailsViewController.swift in Sources */,
 				CB5D7764208FF8D500BCAC49 /* ViewController.swift in Sources */,
+				CB723DAD209619830003C06A /* SearchMovieTableViewController.swift in Sources */,
 				CB5D7787209005EA00BCAC49 /* MovieRequester.swift in Sources */,
 				CB5D77852090036E00BCAC49 /* RouterAPI.swift in Sources */,
 				CB26F1812094E027002C8AA2 /* StringExtention.swift in Sources */,
@@ -450,6 +465,7 @@
 				CBEEAB7320929A24005DDA0D /* ApiError.swift in Sources */,
 				CB5D7783209002A100BCAC49 /* Configuration.swift in Sources */,
 				CB26F1882094ECDB002C8AA2 /* UIImageViewExtension.swift in Sources */,
+				CB723DAF20961B280003C06A /* SearchMoviePresenter.swift in Sources */,
 				CB5D7762208FF8D500BCAC49 /* AppDelegate.swift in Sources */,
 				CBEEAB6320928252005DDA0D /* GendersResponse.swift in Sources */,
 				CB26F1832094E1A6002C8AA2 /* DateExtention.swift in Sources */,

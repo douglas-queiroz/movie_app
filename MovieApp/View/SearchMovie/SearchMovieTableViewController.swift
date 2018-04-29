@@ -1,15 +1,15 @@
 //
-//  HomeTableViewController.swift
+//  SearchMovieTableViewController.swift
 //  MovieApp
 //
-//  Created by Douglas Queiroz on 26/04/18.
+//  Created by Douglas Queiroz on 29/04/18.
 //  Copyright © 2018 Douglas Queiroz. All rights reserved.
 //
 
 import UIKit
 import PKHUD
 
-protocol HomeView {
+protocol SearchMovieView {
     func showLoading();
     func hideLoading();
     func show(errorMsg: String)
@@ -17,31 +17,34 @@ protocol HomeView {
     func updateMovies(with movies: [Movie])
 }
 
-class HomeTableViewController: UITableViewController {
+class SearchMovieTableViewController: UITableViewController {
 
     var movies = [Movie]()
-    var presenter: HomePresenter!
+    let searchBar = UISearchBar()
     
+    var presenter: HomePresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.setupPresenter()
-        self.presenter.loadMovies()
+
+        self.setupSearchBar()
     }
     
-    func setupPresenter() {
-        let genderRequester = GenderRequesterImpl()
-        let movieRequester = MovieRequesterImpl()
-        let movieDataSource = MovieDataSourceImpl(movieRequester: movieRequester, genderRequester: genderRequester)
-        self.presenter = HomePresenterImpl(view: self, movieDataSouce: movieDataSource)
+    func setupSearchBar() {
+        self.searchBar.delegate = self
+        self.searchBar.becomeFirstResponder()
+        searchBar.setShowsCancelButton(true, animated: true)
+        
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.titleView = searchBar
     }
+
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movie_cell", for: indexPath) as! HomeTableViewCell
         cell.setup(with: movies[indexPath.row])
@@ -58,7 +61,7 @@ class HomeTableViewController: UITableViewController {
             }
         }
     }
-
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let sender = sender as? HomeTableViewCell,
@@ -70,7 +73,34 @@ class HomeTableViewController: UITableViewController {
 
 }
 
-extension HomeTableViewController: HomeView {
+extension SearchMovieTableViewController : UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.returnKeyType = .done
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        searchBar.resignFirstResponder()
+        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+}
+
+extension SearchMovieTableViewController: SearchMovieView {
     func showLoading() {
         HUD.show(.progress)
     }

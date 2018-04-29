@@ -82,11 +82,45 @@
                             <outlet property="delegate" destination="Lih-wc-Zdu" id="6Gn-mH-cUS"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="2G7-8P-ue9"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="2G7-8P-ue9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="qTy-Zb-nSj">
+                            <connections>
+                                <segue destination="Tpu-wJ-9Aw" kind="show" id="DMl-Dd-S8l"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RmU-DL-CYC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="740" y="-14.842578710644679"/>
+        </scene>
+        <!--Search Movie Table View Controller-->
+        <scene sceneID="MYX-cz-KZz">
+            <objects>
+                <tableViewController id="Tpu-wJ-9Aw" customClass="SearchMovieTableViewController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vao-Lw-h1s">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="HD2-B4-ehl">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HD2-B4-ehl" id="TtP-Li-9ag">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Tpu-wJ-9Aw" id="QKh-UK-Wlp"/>
+                            <outlet property="delegate" destination="Tpu-wJ-9Aw" id="E2K-Js-Og2"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zVq-Jl-Jjb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="740" y="727"/>
         </scene>
         <!--Movie Details View Controller-->
         <scene sceneID="3oW-tg-wac">
@@ -180,7 +214,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TCL-sg-amh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1576.8" y="-15.742128935532236"/>
+            <point key="canvasLocation" x="2116" y="296"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6AP-Aq-rcN">
