@@ -6,9 +6,10 @@
 //  Copyright © 2018 Douglas Queiroz. All rights reserved.
 //
 
+import Foundation
 import ObjectMapper
 
-class Movie: Mappable {
+class Movie: NSObject, Mappable {
     
     var title: String?
     var posterPath: String?
@@ -16,6 +17,7 @@ class Movie: Mappable {
     var genders: [Gender]?
     var backdropPath: String?
     var releaseDate: String?
+    var overview: String?
     
     required init?(map: Map) {
         
@@ -27,5 +29,6 @@ class Movie: Mappable {
         genreIds <- map["genre_ids"]
         backdropPath <- map["backdrop_path"]
         releaseDate <- map["release_date"]
+        overview <- map["overview"]
     }
 }

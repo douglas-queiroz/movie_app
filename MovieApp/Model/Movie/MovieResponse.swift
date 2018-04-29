@@ -6,9 +6,10 @@
 //  Copyright © 2018 Douglas Queiroz. All rights reserved.
 //
 
+import Foundation
 import ObjectMapper
 
-class MovieResponse: Mappable {
+class MovieResponse: NSObject, Mappable {
     
     var movies: [Movie]?
     

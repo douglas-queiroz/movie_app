@@ -11,6 +11,8 @@ import SDWebImage
 
 class HomeTableViewCell: UITableViewCell {
 
+    var movie: Movie!
+    
     @IBOutlet weak var imgMoviePoster: UIImageView!
     @IBOutlet weak var lblMovieTitle: UILabel!
     @IBOutlet weak var lblMovieReleseDate: UILabel!
@@ -21,6 +23,8 @@ class HomeTableViewCell: UITableViewCell {
     }
 
     func setup(with movie: Movie) {
+        self.movie = movie
+        
         if let posterPath = movie.posterPath {
             let url = URL(string: Configuration.URL_IMAGE_BASE + posterPath)
             imgMoviePoster.sd_setImage(with: url, completed: nil)

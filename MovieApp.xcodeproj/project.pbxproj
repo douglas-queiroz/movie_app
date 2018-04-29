@@ -12,6 +12,8 @@
 		CB26F17E2094D6ED002C8AA2 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB26F17D2094D6ED002C8AA2 /* HomeTableViewCell.swift */; };
 		CB26F1812094E027002C8AA2 /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB26F1802094E027002C8AA2 /* StringExtention.swift */; };
 		CB26F1832094E1A6002C8AA2 /* DateExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB26F1822094E1A6002C8AA2 /* DateExtention.swift */; };
+		CB26F1862094EB6E002C8AA2 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB26F1852094EB6E002C8AA2 /* MovieDetailsViewController.swift */; };
+		CB26F1882094ECDB002C8AA2 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB26F1872094ECDB002C8AA2 /* UIImageViewExtension.swift */; };
 		CB5D7762208FF8D500BCAC49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D7761208FF8D500BCAC49 /* AppDelegate.swift */; };
 		CB5D7764208FF8D500BCAC49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D7763208FF8D500BCAC49 /* ViewController.swift */; };
 		CB5D7767208FF8D500BCAC49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB5D7765208FF8D500BCAC49 /* Main.storyboard */; };
@@ -51,6 +53,8 @@
 		CB26F17D2094D6ED002C8AA2 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		CB26F1802094E027002C8AA2 /* StringExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
 		CB26F1822094E1A6002C8AA2 /* DateExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtention.swift; sourceTree = "<group>"; };
+		CB26F1852094EB6E002C8AA2 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
+		CB26F1872094ECDB002C8AA2 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		CB5D775E208FF8D500BCAC49 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB5D7761208FF8D500BCAC49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB5D7763208FF8D500BCAC49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,8 +114,17 @@
 			children = (
 				CB26F1802094E027002C8AA2 /* StringExtention.swift */,
 				CB26F1822094E1A6002C8AA2 /* DateExtention.swift */,
+				CB26F1872094ECDB002C8AA2 /* UIImageViewExtension.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		CB26F1842094E9A5002C8AA2 /* MovieDetails */ = {
+			isa = PBXGroup;
+			children = (
+				CB26F1852094EB6E002C8AA2 /* MovieDetailsViewController.swift */,
+			);
+			path = MovieDetails;
 			sourceTree = "<group>";
 		};
 		CB5D7755208FF8D400BCAC49 = {
@@ -212,6 +225,7 @@
 		CBEEAB6420928A53005DDA0D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CB26F1842094E9A5002C8AA2 /* MovieDetails */,
 				CB26F17C2094D6D0002C8AA2 /* Home */,
 			);
 			path = View;
@@ -424,6 +438,7 @@
 			files = (
 				CB5E201520940F320066BB2C /* Movie.swift in Sources */,
 				CB5E201120940C740066BB2C /* MovieDataSource.swift in Sources */,
+				CB26F1862094EB6E002C8AA2 /* MovieDetailsViewController.swift in Sources */,
 				CB5D7764208FF8D500BCAC49 /* ViewController.swift in Sources */,
 				CB5D7787209005EA00BCAC49 /* MovieRequester.swift in Sources */,
 				CB5D77852090036E00BCAC49 /* RouterAPI.swift in Sources */,
@@ -434,6 +449,7 @@
 				CBEEAB6F20928E8D005DDA0D /* HomeTableViewController.swift in Sources */,
 				CBEEAB7320929A24005DDA0D /* ApiError.swift in Sources */,
 				CB5D7783209002A100BCAC49 /* Configuration.swift in Sources */,
+				CB26F1882094ECDB002C8AA2 /* UIImageViewExtension.swift in Sources */,
 				CB5D7762208FF8D500BCAC49 /* AppDelegate.swift in Sources */,
 				CBEEAB6320928252005DDA0D /* GendersResponse.swift in Sources */,
 				CB26F1832094E1A6002C8AA2 /* DateExtention.swift in Sources */,

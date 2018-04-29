@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class Gender: Mappable {
+class Gender:NSObject, Mappable {
     
     var id: Int?
     var name: String?

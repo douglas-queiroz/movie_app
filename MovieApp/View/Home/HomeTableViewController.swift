@@ -60,15 +60,14 @@ class HomeTableViewController: UITableViewController {
         }
     }
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let sender = sender as? HomeTableViewCell,
+            let destinationVC = segue.destination as? MovieDetailsViewController {
+            
+            destinationVC.movie = sender.movie
+        }
     }
-    */
 
 }
 
