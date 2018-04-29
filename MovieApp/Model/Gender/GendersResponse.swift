@@ -18,6 +18,6 @@ class GendersResponse:NSObject, Mappable {
     }
     
     func mapping(map: Map) {
-        genders <- map["genres"]
+        genders <- map[Constants.GendersResponse.FIELD_GENDERS]
     }
 }

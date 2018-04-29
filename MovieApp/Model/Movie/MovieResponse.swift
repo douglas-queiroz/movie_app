@@ -18,6 +18,6 @@ class MovieResponse: NSObject, Mappable {
     }
     
     func mapping(map: Map) {
-        movies <- map["results"]
+        movies <- map[Constants.MovieResponse.FIELD_MOVIES]
     }
 }

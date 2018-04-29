@@ -19,7 +19,7 @@ class Gender:NSObject, Mappable {
     }
     
     func mapping(map: Map) {
-        id <- map["id"]
-        name <- map["name"]
+        id <- map[Constants.Gender.FIELD_ID]
+        name <- map[Constants.Gender.FIELD_NAME]
     }
 }

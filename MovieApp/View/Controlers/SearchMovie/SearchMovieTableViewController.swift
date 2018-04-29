@@ -23,6 +23,7 @@ class SearchMovieTableViewController: UITableViewController {
 
     var movies = [Movie]()
     let searchBar = UISearchBar()
+    let movieCellIdentifier = "movie_cell"
     
     var presenter: SearchMoviePresenter!
     var searchBarDisposable: Disposable!
@@ -30,8 +31,8 @@ class SearchMovieTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let cellNib = UINib(nibName: "MovieTableViewCell", bundle: nil)
-        self.tableView.register(cellNib, forCellReuseIdentifier: "movie_cell")
+        let cellNib = UINib(nibName: Constants.Cell.MOVIE_CELL, bundle: nil)
+        self.tableView.register(cellNib, forCellReuseIdentifier: movieCellIdentifier)
         
         self.setupPresenter()
         self.setupSearchBar()
@@ -77,7 +78,7 @@ class SearchMovieTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "movie_cell", for: indexPath) as! MovieTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: movieCellIdentifier, for: indexPath) as! MovieTableViewCell
         cell.setup(with: movies[indexPath.row])
         
         return cell
@@ -96,7 +97,7 @@ class SearchMovieTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         cell?.setSelected(false, animated: true)
-        performSegue(withIdentifier: "sg_show_details", sender: cell)
+        performSegue(withIdentifier: Constants.Segue.SHOW_MOVIE_DETAILS, sender: cell)
     }
     
     // MARK: - Navigation

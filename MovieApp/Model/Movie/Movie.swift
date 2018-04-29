@@ -24,11 +24,11 @@ class Movie: NSObject, Mappable {
     }
     
     func mapping(map: Map) {
-        title <- map["title"]
-        posterPath <- map["poster_path"]
-        genreIds <- map["genre_ids"]
-        backdropPath <- map["backdrop_path"]
-        releaseDate <- map["release_date"]
-        overview <- map["overview"]
+        title <- map[Constants.Movie.FIELD_TITLE]
+        posterPath <- map[Constants.Movie.FIELD_POSTER_PATH]
+        genreIds <- map[Constants.Movie.FIELD_GENDER_IDS]
+        backdropPath <- map[Constants.Movie.FIELD_BACKDROP_PATH]
+        releaseDate <- map[Constants.Movie.FIELD_RELEASE_DATE]
+        overview <- map[Constants.Movie.FIELD_OVERVIEW]
     }
 }

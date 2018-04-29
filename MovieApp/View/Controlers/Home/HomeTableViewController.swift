@@ -22,6 +22,7 @@ class HomeTableViewController: UITableViewController {
     var movies = [Movie]()
     var presenter: HomePresenter!
     
+    let movieCellIdentifier = "movie_cell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +30,8 @@ class HomeTableViewController: UITableViewController {
         self.setupPresenter()
         self.presenter.loadMovies()
         
-        let cellNib = UINib(nibName: "MovieTableViewCell", bundle: nil)
-        self.tableView.register(cellNib, forCellReuseIdentifier: "movie_cell")
+        let cellNib = UINib(nibName: Constants.Cell.MOVIE_CELL, bundle: nil)
+        self.tableView.register(cellNib, forCellReuseIdentifier: movieCellIdentifier)
     }
     
     func setupPresenter() {
@@ -47,7 +48,7 @@ class HomeTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "movie_cell", for: indexPath) as! MovieTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: movieCellIdentifier, for: indexPath) as! MovieTableViewCell
         cell.setup(with: movies[indexPath.row])
         
         return cell
@@ -66,7 +67,7 @@ class HomeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         cell?.setSelected(false, animated: true)
-        performSegue(withIdentifier: "sg_show_details", sender: cell)
+        performSegue(withIdentifier: Constants.Segue.SHOW_MOVIE_DETAILS, sender: cell)
     }
 
     // MARK: - Navigation

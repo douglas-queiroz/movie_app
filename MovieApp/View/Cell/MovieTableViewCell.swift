@@ -28,7 +28,7 @@ class MovieTableViewCell: UITableViewCell {
         lblMovieTitle.text = movie.title
         
         if let release = movie.releaseDate {
-            lblMovieReleseDate.text = String(format: "Release: %@", release)
+            lblMovieReleseDate.text = String(format: Constants.StringFormat.RELEASE_DATE_FORMAT, release)
         }
         
         var txtGender = "| "

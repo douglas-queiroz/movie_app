@@ -33,15 +33,15 @@ enum RouterAPI: URLRequestConvertible {
     }
     
     var params: [String: Any] {
-        var params = ["api_key": Configuration.KEY as Any]
+        var params = [Constants.ApiParamsKey.API_KEY: Configuration.KEY as Any]
         
         switch self {
         case .movieUpComing(let page):
-            params["page"] = page
+            params[Constants.ApiParamsKey.PAGE] = page
             return params
         case .seachMovie(let query, let page):
-            params["query"] = query
-            params["page"] = page
+            params[Constants.ApiParamsKey.QUERY] = query
+            params[Constants.ApiParamsKey.PAGE] = page
             return params
         default:
             return params
