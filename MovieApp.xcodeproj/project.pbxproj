@@ -28,6 +28,8 @@
 		CB5E2017209410A80066BB2C /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5E2016209410A80066BB2C /* MovieResponse.swift */; };
 		CB723DAD209619830003C06A /* SearchMovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB723DAC209619830003C06A /* SearchMovieTableViewController.swift */; };
 		CB723DAF20961B280003C06A /* SearchMoviePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB723DAE20961B280003C06A /* SearchMoviePresenter.swift */; };
+		CB723DB320961FF00003C06A /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB723DB120961FF00003C06A /* MovieTableViewCell.swift */; };
+		CB723DB420961FF00003C06A /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB723DB220961FF00003C06A /* MovieTableViewCell.xib */; };
 		CBEEAB5B2092701A005DDA0D /* GenderRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEEAB5A2092701A005DDA0D /* GenderRequester.swift */; };
 		CBEEAB5E2092703A005DDA0D /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEEAB5D2092703A005DDA0D /* Gender.swift */; };
 		CBEEAB6320928252005DDA0D /* GendersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEEAB6220928252005DDA0D /* GendersResponse.swift */; };
@@ -75,6 +77,8 @@
 		CB5E2016209410A80066BB2C /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
 		CB723DAC209619830003C06A /* SearchMovieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieTableViewController.swift; sourceTree = "<group>"; };
 		CB723DAE20961B280003C06A /* SearchMoviePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMoviePresenter.swift; sourceTree = "<group>"; };
+		CB723DB120961FF00003C06A /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		CB723DB220961FF00003C06A /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
 		CBEEAB5A2092701A005DDA0D /* GenderRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderRequester.swift; sourceTree = "<group>"; };
 		CBEEAB5D2092703A005DDA0D /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		CBEEAB6220928252005DDA0D /* GendersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GendersResponse.swift; sourceTree = "<group>"; };
@@ -216,6 +220,15 @@
 			path = SearchMovie;
 			sourceTree = "<group>";
 		};
+		CB723DB020961FD10003C06A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CB723DB120961FF00003C06A /* MovieTableViewCell.swift */,
+				CB723DB220961FF00003C06A /* MovieTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		CBEEAB5C2092702B005DDA0D /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +250,7 @@
 		CBEEAB6420928A53005DDA0D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CB723DB020961FD10003C06A /* Cell */,
 				CB723DAB2096195F0003C06A /* SearchMovie */,
 				CB26F1842094E9A5002C8AA2 /* MovieDetails */,
 				CB26F17C2094D6D0002C8AA2 /* Home */,
@@ -359,6 +373,7 @@
 			files = (
 				CB5D776C208FF8D600BCAC49 /* LaunchScreen.storyboard in Resources */,
 				CB5D7769208FF8D600BCAC49 /* Assets.xcassets in Resources */,
+				CB723DB420961FF00003C06A /* MovieTableViewCell.xib in Resources */,
 				CB5D7767208FF8D500BCAC49 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,6 +485,7 @@
 				CBEEAB6320928252005DDA0D /* GendersResponse.swift in Sources */,
 				CB26F1832094E1A6002C8AA2 /* DateExtention.swift in Sources */,
 				CBEEAB5E2092703A005DDA0D /* Gender.swift in Sources */,
+				CB723DB320961FF00003C06A /* MovieTableViewCell.swift in Sources */,
 				CBEEAB7120928F12005DDA0D /* HomePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

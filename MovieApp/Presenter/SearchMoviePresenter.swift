@@ -26,6 +26,11 @@ class SearchMoviePresenterImpl: SearchMoviePresenter {
     }
     
     func loadMovies(with query: String) {
+        if query.isEmpty {
+            view.load(movies: [])
+            return
+        }
+        
         currentPage = 1
         currentQuery = query
         loadMovies(query: query, page: currentPage)

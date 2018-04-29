@@ -8,6 +8,8 @@
 
 import UIKit
 import PKHUD
+import RxSwift
+import RxCocoa
 
 protocol SearchMovieView {
     func showLoading();
@@ -27,6 +29,10 @@ class SearchMovieTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let cellNib = UINib(nibName: "MovieTableViewCell", bundle: nil)
+        self.tableView.register(cellNib, forCellReuseIdentifier: "movie_cell")
+        
+        self.setupPresenter()
         self.setupSearchBar()
     }
     
@@ -44,6 +50,21 @@ class SearchMovieTableViewController: UITableViewController {
         
         self.navigationItem.hidesBackButton = true
         self.navigationItem.titleView = searchBar
+        
+        _ = searchBar.rx.text.orEmpty
+            .throttle(3, scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .observeOn(MainScheduler.instance)
+            .subscribe { (event) in
+                switch event {
+                case .next(let query):
+                    
+                    self.presenter.loadMovies(with: query)
+                    break
+                default:
+                    return
+                }
+        }
     }
 
     // MARK: - Table view data source
@@ -53,7 +74,7 @@ class SearchMovieTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "movie_cell", for: indexPath) as! HomeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "movie_cell", for: indexPath) as! MovieTableViewCell
         cell.setup(with: movies[indexPath.row])
         
         return cell
@@ -63,15 +84,21 @@ class SearchMovieTableViewController: UITableViewController {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         if offsetY > contentHeight - scrollView.frame.size.height {
-            if !HUD.isVisible {
+            if !HUD.isVisible && !movies.isEmpty {
                 presenter.loadNextPage()
             }
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.setSelected(false, animated: true)
+        performSegue(withIdentifier: "sg_show_details", sender: cell)
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let sender = sender as? HomeTableViewCell,
+        if let sender = sender as? MovieTableViewCell,
             let destinationVC = segue.destination as? MovieDetailsViewController {
             
             destinationVC.movie = sender.movie
