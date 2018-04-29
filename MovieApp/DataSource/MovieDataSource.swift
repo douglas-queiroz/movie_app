@@ -10,6 +10,7 @@ import RxSwift
 
 protocol MovieDataSource {
     func getUpComing(page: Int) -> Observable<[Movie]>
+    func search(query: String, page: Int) -> Observable<[Movie]>
 }
 
 class MovieDataSourceImpl: MovieDataSource {
@@ -33,6 +34,19 @@ class MovieDataSourceImpl: MovieDataSource {
             .flatMap({ (genderResponse) -> Observable<MovieResponse> in
                 genders = genderResponse.genders
                 return self.movieRequester.getUpComing(page: page)
+            }).flatMap({ (movieResponse) -> Observable<[Movie]> in
+                return self.load(genders: genders, on: movieResponse.movies)
+            })
+    }
+    
+    func search(query: String, page: Int) -> Observable<[Movie]> {
+        
+        var genders: [Gender]?
+        
+        return self.genderRequester.getAllGenders()
+            .flatMap({ (genderResponse) -> Observable<MovieResponse> in
+                genders = genderResponse.genders
+                return self.movieRequester.search(query: query, page: page)
             }).flatMap({ (movieResponse) -> Observable<[Movie]> in
                 return self.load(genders: genders, on: movieResponse.movies)
             })

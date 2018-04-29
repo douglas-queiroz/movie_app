@@ -12,7 +12,7 @@ enum RouterAPI: URLRequestConvertible {
     
     case movieUpComing(page: Int)
     case genders
-    case seachMovie(query: String)
+    case seachMovie(query: String, page: Int)
     
     static let baseURL = Configuration.URL_BASE
     
@@ -39,8 +39,9 @@ enum RouterAPI: URLRequestConvertible {
         case .movieUpComing(let page):
             params["page"] = page
             return params
-        case .seachMovie(let query):
+        case .seachMovie(let query, let page):
             params["query"] = query
+            params["page"] = page
             return params
         default:
             return params

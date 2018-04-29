@@ -22,12 +22,19 @@ class SearchMovieTableViewController: UITableViewController {
     var movies = [Movie]()
     let searchBar = UISearchBar()
     
-    var presenter: HomePresenter!
+    var presenter: SearchMoviePresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.setupSearchBar()
+    }
+    
+    func setupPresenter() {
+        let genderRequester = GenderRequesterImpl()
+        let movieRequester = MovieRequesterImpl()
+        let movieDataSource = MovieDataSourceImpl(movieRequester: movieRequester, genderRequester: genderRequester)
+        self.presenter = SearchMoviePresenterImpl(view: self, movieDataSouce: movieDataSource)
     }
     
     func setupSearchBar() {

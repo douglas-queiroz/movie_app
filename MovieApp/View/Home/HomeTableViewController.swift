@@ -36,6 +36,7 @@ class HomeTableViewController: UITableViewController {
         let movieDataSource = MovieDataSourceImpl(movieRequester: movieRequester, genderRequester: genderRequester)
         self.presenter = HomePresenterImpl(view: self, movieDataSouce: movieDataSource)
     }
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
