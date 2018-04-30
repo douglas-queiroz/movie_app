@@ -6,14 +6,17 @@ target 'MovieApp' do
   use_frameworks!
 
   # Pods for MovieApp
+  
+  #Alamofire
   pod 'AlamofireObjectMapper', '~> 5.0'
   pod 'Alamofire', '~> 4.5'
-  pod 'AlamofireNetworkActivityLogger', '~> 2.0'
+  
+  #Rx
   pod 'RxSwift', '~> 4.0'
   pod 'RxCocoa', '~> 4.0'
   
+  #Util
   pod 'PKHUD', '~> 5.0'
-  
   pod 'SDWebImage/WebP'
 
   target 'MovieAppTests' do
