@@ -9,14 +9,14 @@
 import Foundation
 import RxSwift
 
-protocol SearchMoviePresenter {
+protocol SearchMoviePresenter: class {
     func loadMovies(with query: String)
     func loadNextPage()
 }
 
 class SearchMoviePresenterImpl: SearchMoviePresenter {
     
-    var view: SearchMovieView!
+    weak var view: SearchMovieView!
     var movieDataSouce: MovieDataSource!
     var currentQuery: String!
     var lastMovieResponse: MovieResponse!

@@ -10,7 +10,7 @@ import Alamofire
 import AlamofireObjectMapper
 import RxSwift
 
-protocol MovieRequester {
+protocol MovieRequester: class {
     func getUpComing(page: Int) -> Observable<MovieResponse>
     func search(query: String, page: Int) -> Observable<MovieResponse>
 }

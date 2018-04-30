@@ -11,7 +11,7 @@ import PKHUD
 import RxSwift
 import RxCocoa
 
-protocol SearchMovieView {
+protocol SearchMovieView: class {
     func showLoading();
     func hideLoading();
     func show(errorMsg: String)

@@ -10,7 +10,7 @@ import Alamofire
 import AlamofireObjectMapper
 import RxSwift
 
-protocol GenderRequester {
+protocol GenderRequester: class {
     func getAllGenders() -> Observable<GendersResponse>;
 }
 

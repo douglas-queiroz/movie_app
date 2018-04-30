@@ -8,7 +8,7 @@
 
 import RxSwift
 
-protocol MovieDataSource {
+protocol MovieDataSource: class {
     func getUpComing(page: Int) -> Observable<MovieResponse>
     func search(query: String, page: Int) -> Observable<MovieResponse>
 }

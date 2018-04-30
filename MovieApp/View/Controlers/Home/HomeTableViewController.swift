@@ -9,7 +9,7 @@
 import UIKit
 import PKHUD
 
-protocol HomeView {
+protocol HomeView: class {
     func showLoading();
     func hideLoading();
     func show(errorMsg: String)

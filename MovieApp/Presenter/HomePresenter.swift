@@ -9,14 +9,14 @@
 import Foundation
 import RxSwift
 
-protocol HomePresenter {
+protocol HomePresenter: class {
     func loadMovies()
     func loadNextPage()
 }
 
 class HomePresenterImpl: HomePresenter {
     
-    var view: HomeView!
+    weak var view: HomeView!
     var movieDataSouce: MovieDataSource!
     var lastMovieResponse: MovieResponse!
     
