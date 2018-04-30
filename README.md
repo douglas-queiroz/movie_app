@@ -12,6 +12,6 @@
 
 ## Screenshots
 
-<img src="https://raw.githubusercontent.com/douglas-queiroz/MovieApp/development/screenshots/screen_1.png" width="285"/>
-<img src="https://raw.githubusercontent.com/douglas-queiroz/MovieApp/development/screenshots/screen_2.png" width="285"/>
-<img src="https://raw.githubusercontent.com/douglas-queiroz/MovieApp/development/screenshots/screen_3.png" width="285"/>
+<img src="https://raw.githubusercontent.com/douglas-queiroz/movie_app/development/screenshots/screen_1.png" width="285"/>
+<img src="https://raw.githubusercontent.com/douglas-queiroz/movie_app/development/screenshots/screen_2.png" width="285"/>
+<img src="https://raw.githubusercontent.com/douglas-queiroz/movie_app/development/screenshots/screen_3.png" width="285"/>
