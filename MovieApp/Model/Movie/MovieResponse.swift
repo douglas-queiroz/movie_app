@@ -15,6 +15,10 @@ class MovieResponse: NSObject, Mappable {
     var page: Int?
     var totalPages: Int?
     
+    override init() {
+        
+    }
+    
     required init?(map: Map) {
         
     }

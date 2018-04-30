@@ -1,7 +1,5 @@
 PODS:
   - Alamofire (4.6.0)
-  - AlamofireNetworkActivityLogger (2.3.0):
-    - Alamofire (~> 4.6)
   - AlamofireObjectMapper (5.0.0):
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 3.0)
@@ -41,7 +39,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
-  - AlamofireNetworkActivityLogger (~> 2.0)
   - AlamofireObjectMapper (~> 5.0)
   - PKHUD (~> 5.0)
   - RxCocoa (~> 4.0)
@@ -51,7 +48,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
-    - AlamofireNetworkActivityLogger
     - AlamofireObjectMapper
     - libwebp
     - ObjectMapper
@@ -62,7 +58,6 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  AlamofireNetworkActivityLogger: 6f3076652ab7fa6c819b59be08ea038d339e36d8
   AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
   libwebp: 0f01098c6c17175391af621b2f14150f3ca16e16
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
@@ -71,6 +66,6 @@ SPEC CHECKSUMS:
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
 
-PODFILE CHECKSUM: ab57e25486b4a0bde1fd3513b49228ba61140190
+PODFILE CHECKSUM: 36c363b2d7d99c93509b5f46112c7a2fbf8547f6
 
 COCOAPODS: 1.5.0

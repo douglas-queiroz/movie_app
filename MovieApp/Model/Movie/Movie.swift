@@ -19,6 +19,10 @@ class Movie: NSObject, Mappable {
     var releaseDate: String?
     var overview: String?
     
+    override init() {
+        
+    }
+    
     required init?(map: Map) {
         
     }
