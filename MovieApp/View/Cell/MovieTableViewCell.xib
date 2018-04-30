@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="117" id="KGk-i7-Jjw" customClass="MovieTableViewCell" customModule="MovieApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="404" height="117"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="404" height="116.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labela asdasd asd asd asd asd asdasd asdas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixx-7I-7hA">
+                        <rect key="frame" x="120" y="66" width="264" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTc-Tl-Ql0">
+                        <rect key="frame" x="120" y="11" width="264" height="21"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release: 05/10/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34A-dx-se8">
+                        <rect key="frame" x="120" y="40" width="264" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qin-54-RSc">
+                        <rect key="frame" x="16" y="11" width="96" height="96"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="qin-54-RSc" secondAttribute="height" multiplier="1:1" id="X0w-Y2-nqp"/>
+                            <constraint firstAttribute="height" constant="96" id="bXd-YT-3Wg"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qin-54-RSc" firstAttribute="width" secondItem="qin-54-RSc" secondAttribute="height" multiplier="1:1" id="5vt-CY-xib"/>
+                    <constraint firstItem="uTc-Tl-Ql0" firstAttribute="leading" secondItem="qin-54-RSc" secondAttribute="trailing" constant="8" id="7TW-fa-GrJ"/>
+                    <constraint firstAttribute="trailing" secondItem="uTc-Tl-Ql0" secondAttribute="trailing" constant="20" id="IVU-gl-Udp"/>
+                    <constraint firstAttribute="bottom" secondItem="qin-54-RSc" secondAttribute="bottom" constant="9.5" id="S6K-GY-QyH"/>
+                    <constraint firstItem="34A-dx-se8" firstAttribute="top" secondItem="uTc-Tl-Ql0" secondAttribute="bottom" constant="8" id="T2U-WM-dEJ"/>
+                    <constraint firstItem="uTc-Tl-Ql0" firstAttribute="top" secondItem="qin-54-RSc" secondAttribute="top" id="WR4-xs-c8I"/>
+                    <constraint firstItem="qin-54-RSc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="dAq-hi-GDp"/>
+                    <constraint firstItem="34A-dx-se8" firstAttribute="leading" secondItem="uTc-Tl-Ql0" secondAttribute="leading" id="gqT-Jo-U3O"/>
+                    <constraint firstItem="ixx-7I-7hA" firstAttribute="leading" secondItem="34A-dx-se8" secondAttribute="leading" id="jyL-bC-gau"/>
+                    <constraint firstItem="34A-dx-se8" firstAttribute="trailing" secondItem="uTc-Tl-Ql0" secondAttribute="trailing" id="kf4-wF-JgD"/>
+                    <constraint firstItem="ixx-7I-7hA" firstAttribute="trailing" secondItem="34A-dx-se8" secondAttribute="trailing" id="ld1-oK-pSd"/>
+                    <constraint firstItem="ixx-7I-7hA" firstAttribute="top" secondItem="34A-dx-se8" secondAttribute="bottom" constant="8" id="n9h-sF-QiD"/>
+                    <constraint firstItem="qin-54-RSc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="xuJ-EO-xe2"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgMoviePoster" destination="qin-54-RSc" id="f5Q-wB-Lpz"/>
+                <outlet property="lblMovieGender" destination="ixx-7I-7hA" id="Bcg-p4-Tdi"/>
+                <outlet property="lblMovieReleseDate" destination="34A-dx-se8" id="hnk-pf-Oa9"/>
+                <outlet property="lblMovieTitle" destination="uTc-Tl-Ql0" id="KCM-pd-az0"/>
+            </connections>
+            <point key="canvasLocation" x="76" y="112.5"/>
+        </tableViewCell>
+    </objects>
+</document>
