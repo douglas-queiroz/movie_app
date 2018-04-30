@@ -16,6 +16,8 @@ class Constants {
     }
     
     class MovieResponse {
+        static let FIELD_PAGE = "page"
+        static let FIELD_TOTAL_PAGES = "total_pages"
         static let FIELD_MOVIES = "results"
     }
     

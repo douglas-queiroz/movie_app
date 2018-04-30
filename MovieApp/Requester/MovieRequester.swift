@@ -18,15 +18,16 @@ protocol MovieRequester {
 class MovieRequesterImpl: MovieRequester {
     
     func getUpComing(page: Int) -> Observable<MovieResponse> {
-        return Observable.create { observer in
+        return Observable.create { observable in
             request(RouterAPI.movieUpComing(page: page))
                 .responseObject { (response:DataResponse<MovieResponse>) in
                     switch response.result {
                     case .success(let movies):
-                        observer.onNext(movies)
+                        observable.onNext(movies)
+                        observable.onCompleted()
                         break
                     case .failure(let error):
-                        observer.onError(error)
+                        observable.onError(error)
                         break
                     }
             }
@@ -36,15 +37,16 @@ class MovieRequesterImpl: MovieRequester {
     }
     
     func search(query: String, page: Int) -> Observable<MovieResponse> {
-        return Observable.create { observer in
+        return Observable.create { observable in
             request(RouterAPI.seachMovie(query: query, page: page))
                 .responseObject { (response:DataResponse<MovieResponse>) in
                     switch response.result {
                     case .success(let movies):
-                        observer.onNext(movies)
+                        observable.onNext(movies)
+                        observable.onCompleted()
                         break
                     case .failure(let error):
-                        observer.onError(error)
+                        observable.onError(error)
                         break
                     }
             }

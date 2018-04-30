@@ -19,17 +19,11 @@ class SearchMoviePresenterImpl: SearchMoviePresenter {
     var view: SearchMovieView!
     var movieDataSouce: MovieDataSource!
     var currentQuery: String!
-    var currentPage = 1
+    var lastMovieResponse: MovieResponse!
     
     init(view: SearchMovieView, movieDataSouce: MovieDataSource) {
         self.view = view
         self.movieDataSouce = movieDataSouce
-    }
-    
-    func loadMovies(with query: String) -> Observable<[Movie]> {
-        currentQuery = query
-        currentPage = 1
-        return movieDataSouce.search(query: query, page: currentPage)
     }
     
     func loadMovies(with query: String) {
@@ -37,15 +31,20 @@ class SearchMoviePresenterImpl: SearchMoviePresenter {
             view.load(movies: [])
             return
         }
-        
-        currentPage = 1
+    
         currentQuery = query
-        loadMovies(query: query, page: currentPage)
+        loadMovies(query: query, page: 1)
     }
     
     func loadNextPage() {
-        currentPage += 1
-        loadMovies(query: currentQuery, page: currentPage)
+        
+        if let page = lastMovieResponse.page,
+            let totalPage = lastMovieResponse.totalPages,
+            page < totalPage {
+            
+            let nextPage = page + 1
+            loadMovies(query: currentQuery, page: nextPage)
+        }
     }
     
     private func loadMovies(query: String, page: Int) {
@@ -57,12 +56,18 @@ class SearchMoviePresenterImpl: SearchMoviePresenter {
                 case .completed:
                     self.view.hideLoading()
                     break
-                case .next(let movies):
-                    self.view.hideLoading()
-                    if self.currentPage == 1 {
-                        self.view.load(movies: movies)
-                    }else {
-                        self.view.updateMovies(with: movies)
+                case .next(let moviesResponse):
+                    
+                    guard let movies = moviesResponse.movies else { return }
+                    
+                    self.lastMovieResponse = moviesResponse
+                    
+                    if let page = moviesResponse.page {
+                        if page == 1 {
+                            self.view.load(movies: movies)
+                        }else {
+                            self.view.updateMovies(with: movies)
+                        }
                     }
                     break
                 case .error(let erro):

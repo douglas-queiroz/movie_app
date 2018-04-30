@@ -17,15 +17,16 @@ protocol GenderRequester {
 class GenderRequesterImpl: GenderRequester {
     
     func getAllGenders() -> Observable<GendersResponse> {
-        return Observable.create { observer in
+        return Observable.create { observable in
             request(RouterAPI.genders)
                 .responseObject { (response:DataResponse<GendersResponse>) in
                     switch response.result {
                     case .success(let genders):
-                        observer.onNext(genders)
+                        observable.onNext(genders)
+                        observable.onCompleted()
                         break
                     case .failure(let error):
-                        observer.onError(error)
+                        observable.onError(error)
                         break
                     }
             }

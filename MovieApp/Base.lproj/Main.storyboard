@@ -40,7 +40,7 @@
             </objects>
             <point key="canvasLocation" x="740" y="-14.842578710644679"/>
         </scene>
-        <!--Search Movie Table View Controller-->
+        <!--Title-->
         <scene sceneID="MYX-cz-KZz">
             <objects>
                 <tableViewController id="Tpu-wJ-9Aw" customClass="SearchMovieTableViewController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -53,6 +53,9 @@
                             <outlet property="delegate" destination="Tpu-wJ-9Aw" id="E2K-Js-Og2"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="SNt-Cy-ApH">
+                        <barButtonItem key="backBarButtonItem" title=" " id="UGR-Sp-wDe"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="nKX-9r-v3j" kind="show" identifier="sg_show_details" id="uyz-o2-DKI"/>
                     </connections>

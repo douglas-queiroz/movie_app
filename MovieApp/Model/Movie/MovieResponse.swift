@@ -12,6 +12,8 @@ import ObjectMapper
 class MovieResponse: NSObject, Mappable {
     
     var movies: [Movie]?
+    var page: Int?
+    var totalPages: Int?
     
     required init?(map: Map) {
         
@@ -19,5 +21,7 @@ class MovieResponse: NSObject, Mappable {
     
     func mapping(map: Map) {
         movies <- map[Constants.MovieResponse.FIELD_MOVIES]
+        page <- map[Constants.MovieResponse.FIELD_PAGE]
+        totalPages <- map[Constants.MovieResponse.FIELD_TOTAL_PAGES]
     }
 }

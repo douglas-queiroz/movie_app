@@ -18,7 +18,7 @@ class HomePresenterImpl: HomePresenter {
     
     var view: HomeView!
     var movieDataSouce: MovieDataSource!
-    var currentPage = 1
+    var lastMovieResponse: MovieResponse!
     
     init(view: HomeView, movieDataSouce: MovieDataSource) {
         self.view = view
@@ -26,31 +26,42 @@ class HomePresenterImpl: HomePresenter {
     }
     
     func loadMovies() {
-        currentPage = 1
-        self.loadMovies(page: currentPage)
+        self.loadMovies(page: 1)
     }
     
     func loadNextPage() {
-        currentPage += 1
-        self.loadMovies(page: currentPage)
+        if let page = lastMovieResponse.page,
+            let totalPage = lastMovieResponse.totalPages,
+            page < totalPage {
+            
+            let nextPage = page + 1
+            self.loadMovies(page: nextPage)
+        }
     }
     
     private func loadMovies(page: Int) {
         view.showLoading()
         
-        _ = movieDataSouce.getUpComing(page: currentPage)
+        _ = movieDataSouce.getUpComing(page: page)
             .subscribe { (event) in
                 switch event {
                 case .completed:
                     self.view.hideLoading()
                     break
-                case .next(let movies):
-                    self.view.hideLoading()
-                    if self.currentPage == 1 {
-                        self.view.load(movies: movies)
-                    }else {
-                        self.view.updateMovies(with: movies)
+                case .next(let moviesResponse):
+                    
+                    guard let movies = moviesResponse.movies else { return }
+                    
+                    self.lastMovieResponse = moviesResponse
+                    
+                    if let page = moviesResponse.page {
+                        if page == 1 {
+                            self.view.load(movies: movies)
+                        }else {
+                            self.view.updateMovies(with: movies)
+                        }
                     }
+                    
                     break
                 case .error(let erro):
                     self.view.hideLoading()

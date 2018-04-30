@@ -26,7 +26,7 @@ class MovieDetailsViewController: UIViewController {
     }
     
     func setup() {
-        navigationController?.title = movie.title
+        title = movie.title
         
         imgMoviePoster.loadImage(from: movie.posterPath)
         imgMovieBackDrop.loadImage(from: movie.backdropPath)

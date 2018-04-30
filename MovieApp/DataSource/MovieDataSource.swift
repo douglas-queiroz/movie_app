@@ -9,8 +9,8 @@
 import RxSwift
 
 protocol MovieDataSource {
-    func getUpComing(page: Int) -> Observable<[Movie]>
-    func search(query: String, page: Int) -> Observable<[Movie]>
+    func getUpComing(page: Int) -> Observable<MovieResponse>
+    func search(query: String, page: Int) -> Observable<MovieResponse>
 }
 
 class MovieDataSourceImpl: MovieDataSource {
@@ -26,7 +26,7 @@ class MovieDataSourceImpl: MovieDataSource {
         
     }
     
-    func getUpComing(page: Int) -> Observable<[Movie]> {
+    func getUpComing(page: Int) -> Observable<MovieResponse> {
         
         var genders: [Gender]?
         
@@ -34,12 +34,12 @@ class MovieDataSourceImpl: MovieDataSource {
             .flatMap({ (genderResponse) -> Observable<MovieResponse> in
                 genders = genderResponse.genders
                 return self.movieRequester.getUpComing(page: page)
-            }).flatMap({ (movieResponse) -> Observable<[Movie]> in
-                return self.load(genders: genders, on: movieResponse.movies)
+            }).flatMap({ (movieResponse) -> Observable<MovieResponse> in
+                return self.load(genders: genders, on: movieResponse)
             })
     }
     
-    func search(query: String, page: Int) -> Observable<[Movie]> {
+    func search(query: String, page: Int) -> Observable<MovieResponse> {
         
         var genders: [Gender]?
         
@@ -47,21 +47,21 @@ class MovieDataSourceImpl: MovieDataSource {
             .flatMap({ (genderResponse) -> Observable<MovieResponse> in
                 genders = genderResponse.genders
                 return self.movieRequester.search(query: query, page: page)
-            }).flatMap({ (movieResponse) -> Observable<[Movie]> in
-                return self.load(genders: genders, on: movieResponse.movies)
+            }).flatMap({ (movieResponse) -> Observable<MovieResponse> in
+                return self.load(genders: genders, on: movieResponse)
             })
     }
     
-    private func load(genders: [Gender]?, on movies: [Movie]?) -> Observable<[Movie]>{
+    private func load(genders: [Gender]?, on movieResponse: MovieResponse) -> Observable<MovieResponse>{
         return Observable.create{ (observable) in
+            
             guard let genders = genders else {
-                // TODO: Improve it
-                observable.onNext([Movie]())
+                observable.onError(DataLoadError.emptyGenders)
                 return Disposables.create()
             }
             
-            guard let movies = movies else {
-                observable.onNext([Movie]())
+            guard let movies = movieResponse.movies else {
+                observable.onError(DataLoadError.emptyMovies)
                 return Disposables.create()
             }
             
@@ -76,7 +76,8 @@ class MovieDataSourceImpl: MovieDataSource {
                 }
             })
             
-            observable.onNext(movies)
+            observable.onNext(movieResponse)
+            observable.onCompleted()
             
             return Disposables.create()
         }
